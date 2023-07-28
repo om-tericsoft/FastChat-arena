@@ -112,29 +112,29 @@ def build_demo(models, elo_results_file, leaderboard_table_file):
                     a_parameter_row,
                 ]
 
-            with gr.Tab("Chatbot Arena (battle)", id=1):
-                (
-                    b_states,
-                    b_model_selectors,
-                    b_chatbots,
-                    b_textbox,
-                    b_send_btn,
-                    b_button_row,
-                    b_button_row2,
-                    b_parameter_row,
-                ) = build_side_by_side_ui_anony(models)
-                b_list = (
-                    b_states
-                    + b_model_selectors
-                    + b_chatbots
-                    + [
-                        b_textbox,
-                        b_send_btn,
-                        b_button_row,
-                        b_button_row2,
-                        b_parameter_row,
-                    ]
-                )
+            # with gr.Tab("Chatbot Arena (battle)", id=1):
+            #     (
+            #         b_states,
+            #         b_model_selectors,
+            #         b_chatbots,
+            #         b_textbox,
+            #         b_send_btn,
+            #         b_button_row,
+            #         b_button_row2,
+            #         b_parameter_row,
+            #     ) = build_side_by_side_ui_anony(models)
+            #     b_list = (
+            #         b_states
+            #         + b_model_selectors
+            #         + b_chatbots
+            #         + [
+            #             b_textbox,
+            #             b_send_btn,
+            #             b_button_row,
+            #             b_button_row2,
+            #             b_parameter_row,
+            #         ]
+            #     )
 
             with gr.Tab("Chatbot Arena (side-by-side)", id=2):
                 (
@@ -171,7 +171,7 @@ def build_demo(models, elo_results_file, leaderboard_table_file):
         demo.load(
             load_demo,
             [url_params],
-            [tabs] + a_list + b_list + c_list,
+            [tabs] + a_list + c_list,
             _js=get_window_url_params_js,
         )
 
